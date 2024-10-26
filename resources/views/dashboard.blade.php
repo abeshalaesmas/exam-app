@@ -8,7 +8,6 @@
 <body>
 
 
-
     <h1>Welcome to Dashboard</h1>
    
     <table>
@@ -22,12 +21,10 @@
             <tr>
                 <td>{{$data->name}}</td>
                 <td>{{$data->email}}</td>
+                <h1>{{$notes->title}}</h1>
+                <h1>{{$notes->content}}</h1>
                 <td><a href="logout">Logout</a></td>
             </tr>
-            <form action="{{route('notes.index')}}" method="GET">
-                @csrf
-                <button type="submit">STARTED</button>
-            </form>
             
         </tbody>
     </table>

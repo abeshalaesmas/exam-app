@@ -21,6 +21,7 @@ class CustomAuthController extends Controller
         return view('auth.registration');
     }
 
+
     public function registerUser(Request $request){
         $validation = $request->validate([
             'name' => 'required|string',
@@ -77,21 +78,14 @@ class CustomAuthController extends Controller
         return view('dashboard',compact('data'));
             
     }
-    public function index() {
-        if (Auth::check()) {
-            $notes = Auth::user()->notes; // Fetch the notes for the logged-in user
-        } else {
-            $notes = collect(); // Or set $notes to an empty collection
-        }
-        return view('dashboard', compact('notes'));
+    public function index()
+    {
+    $notes = Auth::user()->notes;
+    return view('dashboard', ['notes'=>$notes]);
+        
     }
     
-    // public function index()
-    // {
-    //     $notes = Auth::user()->notes; // Fetch the notes for the logged-in user
-    //     return view('dashboard', compact('notes'));
-        
-    // }
+
 
      public function logout(Request $request){
         if(Session::has('loginId')){

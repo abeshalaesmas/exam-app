@@ -22,7 +22,7 @@ class User extends Authenticatable
         'password',
     ];
     public function notes(){
-        return $this->hasMany('Note::class');
+        return $this->hasMany('Note::class','user_id');
     }
     /**
      * The attributes that should be hidden for serialization.

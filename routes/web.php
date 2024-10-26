@@ -23,7 +23,7 @@ Route::get('/logout',[CustomAuthController::class,'logout'])->name('logout');
 
 Route::middleware('auth')->group(function () {
     //SHOWALLNOTES
-    Route::get('/notes', [NoteController::class, 'index'])->name('notes.index');
+    Route::get('/notes', [NoteController::class, 'index'])->name('dashboard');
     //CREATE
     Route::get('/notes/create', [NoteController::class, 'create'])->name('notes.create');
     Route::post('/notes', [NoteController::class, 'store'])->name('notes.store');

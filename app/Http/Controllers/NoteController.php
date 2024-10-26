@@ -9,18 +9,11 @@ class NoteController extends Controller
 {
 
 
-    public function index(){
-        $notes = Auth::user()->notes;
-        return view('notes.index',compact('notes'));
+    public function index()
+    {
+    $notes = Auth::user()->notes;
+    return view('dashboard', ['notes'=>$notes]);
         
-        // if (Auth::check()) {
-        //     $notes = Auth::user()->notes; // Fetch notes for the logged-in user
-        // } else {
-        //     $notes = collect(); // Define an empty collection if no user is authenticated
-        // }
-
-        // return view('dashboard', compact('notes')); // Pass $notes to the view
-
     }
     //CREATE
     public function create(){
